@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block  title %}aboutme{% endblock %}
+
+{% block content %}
+<br>
+<center>
+{% if something_went_wrong == True %}
+<div class="alert alert-danger" role="alert">
+    <center>Something went wrong - try again!</center>
+</div>
+{% endif %}
+
+<div class="card text-white bg-dark mb-3 border-dark mb-3" style="width: 24rem;">
+  <div class="card-body ">
+
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+              <div class="form-group">
+                <label>Your name</label>
+                <input class="form-control" id="username" name="username" placeholder="John">
+              </div>
+
+              <div class="form-group">
+                <label for="usermail">Your e-mail address</label>
+                  <input type="email" class="form-control" id="usermail" name="usermail" placeholder="name@example.com">
+              </div>
+
+              <div class="form-group">
+                <label for="usersubject">Subject</label>
+                <input class="form-control" id="usersubject" name="usersubject" placeholder="For example: My opinion">
+              </div>
+
+              <div class="form-group">
+                <label for="usertext">Example textarea</label>
+                <textarea class="form-control" id="usertext" name="usertext" placeholder="Your text" rows="3"></textarea>
+              </div>
+            <button type="submit" class="btn btn-success" >Send e-mail!</button>
+          </form>
+      </div>
+  </div>
+</center>
+{% endblock %}

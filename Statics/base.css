@@ -1,0 +1,47 @@
+body {
+  background-image: url('http://www.ronczo.webd.pro/media/background.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+#welcome {
+    font-size: 20px;
+    color: #f5f5f5;
+    Didot, serif;
+    display: flex;
+    align-items: center
+}
+
+#vertical {
+        position: absolute;
+        top: 51%;
+        margin-right: -50%;
+        margin-left: 10px;
+        transform: translate(-50%, -50%);
+}
+
+#verticalphoto {
+        position: absolute;
+        top: 25%;
+        left: 50%;
+        margin-right: -50%;
+        margin-left: 10px;
+        transform: translate(-50%, -50%);
+        border-width: 3px;
+        border-style: ridge;
+
+}
+
+#play {
+    a:hover box-shadow: inset 300px 0 0 #e06666;
+    transition: all 1s;
+    color: #fff;
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+
+}
+
