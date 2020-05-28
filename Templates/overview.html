@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+{% block  title %}Character overview{% endblock %}
+
+{% block content %}
+{% if character.belongs_to == request.user %}
+<br>
+
+
+<div class="container" >
+  <div class="row" >
+    <div class="col-sm" >
+      <div class="card text-white" style="width: 20rem;background-color: rgba(0, 0, 0, 0.85); margin-bottom: 30px">
+        <div class="card-body" >
+          <h4>Hero statistics:</h4>
+          <div class="progress">
+            <div class="progress-bar bg-success" role="progressbar" style="width: {{ progress_bar_hp }}%" aria-valuenow="{{ character.current_hp }}" aria-valuemin="5" aria-valuemax="{{ character.hp }}"></div>
+          </div>{{ character.current_hp }} / {{ character.hp }} HP
+          <div class="progress">
+            <div class="progress-bar bg-info" role="progressbar" style="width: {{ progress_bar_mana }}%" aria-valuenow="{{ character.current_mana }}" aria-valuemin="0" aria-valuemax="{{ character.mana }}"></div>
+          </div>{{ character.current_mana }} / {{ character.mana }} Mana
+          <div class="progress">
+            <div class="progress-bar bg-warning" role="progressbar" style="width: {{ progress_bar_stamina }}%" aria-valuenow="{{ character.current_stamina }}" aria-valuemin="0" aria-valuemax="{{ character.stamina }}"></div>
+          </div>{{ character.current_stamina }} / {{ character.stamina }} Stamina
+          <hr><p style="text-align: left"><i class="fas fa-fire"></i> Attack damage: {{ character.attack_dmg }}</p><hr>
+          <p style="text-align: left"><i class="fas fa-shield-alt"></i> Defence: {{ character.defence }}</p><hr>
+          <p style="text-align: left"><i class="fas fa-heart"></i> Max HP: {{ character.hp }}</p><hr>
+          <p style="text-align: left"><i class="fas fa-praying-hands"></i> Max mana: {{ character.mana }}</p><hr>
+          <p style="text-align: left"><i class="fas fa-running"></i> Max stamina: {{ character.stamina }}</p><hr>
+          <p style="text-align: left"><i class="fas fa-coins"></i><b> Money: {{ character.money }}</b></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm">
+      <div class="card text-white" style="width: 20rem;background-color: rgba(0, 0, 0, 0.85);">
+        <div class="card-body ">
+          <h4>Inventory</h4><br>
+          <div class="container">
+            <div class="row justify-content-md-center">
+              <div class="col-4">
+                <img src="{{ inventory.head.picture }}" alt="helmet" title="{{ inventory.head.description }}"
+                height="64" width="70" style="border: 3px solid #9ec8d6;">
+                  {% if inventory.head.name != "Head" %}
+                  <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="badge badge-secondary" style="height: 20px; width: 4.4rem"
+                            name="takeoff" value="{{ inventory.head.name }}" id="takeoff-helmet">Take off
+                    </button>
+                  </form>
+                  {% endif %}
+                </div>
+            </div><br>
+            <div class="row">
+              <div class="col-4"><img src="{{ inventory.left.picture }}" alt="Weapon" style="border: 3px solid #9ec8d6;"
+                                      title="{{ inventory.left.description }}">
+                  {% if inventory.left.name != "Left" %}
+                  <form method="post">
+                  {% csrf_token %}
+                  <button type="submit" class="badge badge-secondary" style="height: 20px; width: 4.4rem"
+                          name="takeoff" value="{{ inventory.left.name }}" id="takeoff-left">Take off
+                  </button>
+                </form>
+                {% endif %}
+              </div>
+              <div class="col-4"><img src="{{ inventory.body.picture }}" alt="Armor" style="border: 3px solid #9ec8d6;"
+                                      title="{{ inventory.body.description }}">
+                {% if inventory.body.name != "Body" %}
+                <form method="post">
+                  {% csrf_token %}
+                  <button type="submit" class="badge badge-secondary" style="height: 20px; width: 4.4rem"
+                          name="takeoff" value="{{ inventory.body.name }}" id="takeoff-body">Take off
+                  </button>
+                </form>
+                {% endif %}
+              </div>
+              <div class="col-4"><img src="{{ inventory.right.picture }}" alt="Consumable" style="border: 3px solid #9ec8d6;"
+                  title="{{ inventory.right.description }}">
+                {% if inventory.right.name != "Right" %}
+                <form method="post">
+                  {% csrf_token %}
+                  <button type="submit" class="badge badge-secondary" style="height: 20px; width: 4.4rem"
+                          name="takeoff" value="{{ inventory.right.name }}" id="takeoff-right">Take off
+                  </button>
+                </form>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm">
+      <div class="card text-white" style="width: 20rem;background-color: rgba(0, 0, 0, 0.85);">
+        <div class="card-body ">
+          <h4>Backpack</h4><br>
+            <div class="container">
+              <div class="row justify-content">
+
+              {% for item, quantity in backpack.items %}
+              {% if loop.index in loop_index_raw %}
+                <div class="row" >
+              {% endif %}
+                  <div class="col-4" style="margin-top: 7px">
+                    <img src="{{ item.picture }}" alt="NO PIC!" title="{{ item.description }}"
+                               height="64" width="64" style="border: 3px solid #9ec8d6;">
+                    <div style="position: absolute;
+                      bottom: 50px;
+                      width: 25px;
+                      right: 14px;
+                      font-size: 18px;
+                      color: white;
+                      background-color: #9ec8d6"><center>{{ quantity }}</center>
+                    </div>
+                      <form method="post">
+                        {% csrf_token %}
+                        {% if item.name != "Arrows" %}
+                        <button type="submit" class="badge badge-info" style="height: 20px; width: 4rem"
+                                name="equip" value="{{ item.name }}" id="equip">
+                          {% if item.category == 7 %}
+                          Use
+                          {% else %}
+                          Equip
+                          {% endif %}
+                        </button>
+                      </form>
+                     {% endif %}
+                      <form method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="badge badge-danger" style="height: 20px; width: 4rem"
+                                name="sell" value="{{ item.name }}" id="sell">Sell
+                        </button>
+                      </form>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+{% else %}
+<div class="alert alert-danger" role="alert">
+  You are trying to play character, which doesn't belong to you!
+</div>
+  <center>
+    <a href="{% url 'game' %}" class="btn btn-danger">Back to the character select</a>
+  </center>
+{% endif %}
+{% endblock %}

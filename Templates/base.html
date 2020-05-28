@@ -7,11 +7,12 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The Inimical Wood - 5 minutes game - {% block title %}{% endblock %} - Written by Marcin Jarosiński</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/40fca8b9cb.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'base.css' %}">
-    <title>The Inimical Wood game - {% block title %}{% endblock %} - Written by Marcin Jarosińśki</title>
+
     <link rel="icon" href="http://www.ronczo.webd.pro/media/icon.jpg">
 </head>
 <body>
@@ -20,7 +21,7 @@
         <span>
             <a class="navbar-brand" href="{% url 'home' %}">
             <img src="http://www.ronczo.webd.pro/media/icon.jpg" width="30" height="30"
-            class="d-inline-block align-top" alt=""> The Inimical Wood - The game</a>
+            class="d-inline-block align-top" alt=""> The Inimical Wood - The 5 minutes game</a>
             <a class="navbar-brand" href="{% url 'aboutme' %}" style="font-size: 15px; opacity: 0.6;">
                 About me</a>
             <a class="navbar-brand" href="{% url 'contact' %}" style="font-size: 15px; opacity: 0.6;">
@@ -29,7 +30,7 @@
 
 {% if user.is_authenticated %}
         <span id="welcome"><i class="far fa-id-card" style="margin-right: 5px;"></i> Welcome {{ user.username }}
-        <a href="{% url 'logout' %}" class="btn btn-light" style="margin-left: 15px;">Logout</a>
+            <a href="{% url 'logout' %}" class="btn btn-light" style="margin-left: 15px;">Logout</a></span>
 
 {% else %}
         <span>

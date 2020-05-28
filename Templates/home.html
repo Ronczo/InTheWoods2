@@ -4,25 +4,34 @@
 {% block content %}
 
 <center>
-    <div class="card" style="width: 100rem; height: 11rem;
-        background-color:
-        rgba(0, 0, 0, 0.6);
+    <div class="card" style="width: 80rem;
+        height: 12rem;
+        background-color: rgba(0, 0, 0, 0.6);
         position: absolute;
         top: 50%;
         left: 50%;
         margin-right: -50%;
-        transform: translate(-50%, -50%);">
+        transform: translate(-50%, -50%);
+        font-size: 80px;">
                 <div class="card-body" >
-            {% if user.is_authenticated %}
-                        <p class="card-text" ><a href="game" id="play"><i class="fas fa-play-circle fa-7x" id="play" style="color:#9ec8d6"></i></p></a>
-
-            {% else %}
+                    {% if user.is_authenticated %}
+                        <div >
+                          <p><a href="game" id="play" style="color:#9ec8d6; text-decoration:none;
+                           text-shadow: -4px 0 black, 0 1px black, 1px 0 black, 0 -4px black;"><b>PLAY</b>
+                           <i class="fas fa-play-circle fa-1x"  style="color:#9ec8d6;
+                           text-shadow: 0px 0 black, 0 1px black, 1px 0 black, 0 0px black;"></i></a></p>
+                        </div>
+                    {% else %}
                         <p class="card-text" style="color:#9ec8d6"><i class="fas fa-sign-in-alt fa-4x"></i></p>
                         <h1 style="color:#9ec8d6">Log in required</h1>
-            {% endif %}
+                     {% endif %}
                 </div>
     </div>
 </center>
+  <div class="row">
+    <div class="col-auto mr-auto"></div>
+      <a href="specialthanks"><div class="col-auto"><span class="badge badge-primary">Special thanks</span></div></a>
+  </div>
 
 
 
