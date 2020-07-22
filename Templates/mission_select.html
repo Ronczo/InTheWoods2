@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Select mission{% endblock %}
+
+{% block content %}
+<br>
+<a href="{% url 'overview' character.id %}" class="btn btn-danger" style="width: 100px; margin-left: 2%">Back</a>
+<div class="card text-white" style="width: 96%; background-color: rgba(0, 0, 0, 0.85); margin: auto">
+  <div class="card-body">
+    <h2 style="text-align: center; color: #9ec8d6;"><i class="fas fa-map-signs fa-1x"></i> Select mission</h2><br>
+              <div class="container">
+              <div class="row justify-content-center">
+              <div class="row">
+              {% for mission in missions %}
+                  <div class="col-4" style="margin-top: 7px">Mission {{ mission.number}}
+                    <a href="{% url 'game' %}">
+                      <img src="{{ mission.picture }}" alt="NO PIC!" title="{{ mission.description }}"
+                               width="216"  height=134"  style="border: 3px solid #9ec8d6;">
+                      {% if character.mission >= mission.number %}
+                      <div style="position: absolute;
+                        bottom: 3px;
+                        width: 50%;
+                        color: white;"><center><i class="fas fa-check-circle fa-3x"></i></center>
+                      </div>
+                      {% endif %}
+                     </a>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+  </div>
+</div>
+
+
+{% endblock %}

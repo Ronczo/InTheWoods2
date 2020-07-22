@@ -1,0 +1,54 @@
+#briefing-text {
+    background-color: rgba(0, 0, 0, 0.85);
+    margin: auto;
+    color: white;
+    width: 95%;
+}
+
+#description {
+    margin: 10px;
+    margin-right:0px;
+    color: #ffcc66;
+    font-family: 'Pirata One', cursive;
+    font-size: 22px;
+}
+
+.briefing-title {
+    font-size: 32px;
+}
+
+.briefing-description {
+    margin-left: 10px;
+}
+
+#map {
+    float: right;
+}
+
+.blink {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% { opacity: 0; }
+}
+
+#position1 {
+  position: absolute;
+  top: 53%;
+  left: 86%;
+  color: red
+}
+
+#buttonposition1 {
+  position: absolute;
+  left: -45%;
+  font-size: 22px;
+  font-family: 'Luckiest Guy', cursive;
+}
+
+#position2 {
+   position: absolute;
+  top: 58%;
+  left: 86%;
+  transform: translate(-50%, -50%);

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Select mission{% endblock %}
+
+{% block content %}
+{% if character.belongs_to == request.user %}
+<div id="briefing-text">
+    <div id="description">
+      <img src="http://www.ronczo.webd.pro/media/map.jpg" alt="map" id="map">
+      <!-- position on the map below -->
+        <div id="position1">
+            <span class="blink"><i class="fas fa-long-arrow-alt-down fa-4x"></i></span><br>
+            <a href="{% url 'game' %}" class="btn btn-danger" id="buttonposition1">PLAY</a>
+        </div>
+      <!-- TEXT HERE -->
+        <p class="briefing-title">Mission {% block mission %}<!-- mission number and title here --> {% endblock %}</p>
+        <p class="briefing-description">{% block desciption %}MISSION DESCRIPTION<!-- description of the mission here -->{% endblock %}</p>
+
+    </div>
+</div>
+{% else %}
+<div class="alert alert-danger" role="alert">
+  You are trying to play character, which doesn't belong to you!
+</div>
+<div style="text-align: center;">
+  <a href="{% url 'game' %}" class="btn btn-danger" style="width: 100px;">Back</a>
+</div>
+{% endif %}
+{% endblock %}
