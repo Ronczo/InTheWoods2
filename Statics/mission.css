@@ -4,13 +4,13 @@
 
 #herostatus {
     width: 21%;
-    height: 600px;
+    height: 550px;
     float: left;
 }
 
 #actionmenu {
     width: 40%;
-    height: 600px;
+    height: 550px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -26,7 +26,7 @@
 
 #monsterstatus {
     width: 25%;
-    height: 600px;
+    height: 550px;
     float: right;
     border-color: #990000;
 }
