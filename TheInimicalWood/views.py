@@ -269,9 +269,22 @@ def mission(request,id, selected_mission):
     character = get_object_or_404(Character, pk=id)
     current_mission = get_object_or_404(Mission, number=selected_mission)
 
+    #Variables needed for template
+
+    loop_index_raw = [i for i in range(1000)][1::3]
+    progress_bar_hp = int(character.current_hp / character.hp * 100) if (
+    character.current_hp / character.hp * 100) >= 25 else 25
+    progress_bar_mana = int(character.current_mana / character.mana * 100) if (
+    character.current_mana / character.mana * 100) >= 25 else 25
+    progress_bar_stamina = int(character.current_stamina / character.stamina * 100) if (
+    character.current_stamina / character.stamina * 100) >= 25 else 25
+
     context = {
         'character': character,
-        'current_mission': current_mission
+        'current_mission': current_mission,
+        'progress_bar_hp': progress_bar_hp,
+        'progress_bar_mana': progress_bar_mana,
+        'progress_bar_stamina': progress_bar_stamina
     }
 
     return render(request, 'missions/mission.html', context)

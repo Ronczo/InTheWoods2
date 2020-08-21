@@ -21,26 +21,26 @@
     <div class="col-md-auto">
 
       <div class="card text-white" style="width: 20rem;background-color: rgba(0, 0, 0, 0.85); width: 18rem;">
-  {% if character.hero_class == 0 %}
-<img src="http://www.ronczo.webd.pro/media/Knight_avatar.jpg"  alt="Knight_avatar" height="80" width="80">
-{% elif character.hero_class == 1 %}
-<img src="http://www.ronczo.webd.pro/media/Archer_avatar.jpg"  alt="Archer_avatar" height="80" width="80">
-{% else %}
-<img src="http://www.ronczo.webd.pro/media/Sorcerer_avatar.jpg"  alt="Sorcerer_avatar" height="80" width="80">
-{% endif %}
-  <div class="card-body">
-    <h5 class="card-title">{{ character.name }} </h5><hr>
-    <p class="card-text">
-        <h6 style="text-align: left">Hero details:</h6>
-                <p style="text-align: left">Attack damage: {{ character.attack_dmg }}<br>
-                Defence: {{ character.defence }}<br>
-                HP: {{ character.hp }}<br>
-                Mana: {{ character.mana }}<br>
-                Stamina: {{ character.stamina }}</p>
-    <a href="{% url 'overview' character.id %}" class="btn btn-success" style="width: 10rem;">Play this hero</a>
-    <a href="{% url 'delete' character.id %}" class="btn btn-danger" style="width: 10rem;">Delete this hero</a>
-  </div>
-</div>
+        {% if character.hero_class == 0 %}
+        <img src="http://www.ronczo.webd.pro/media/Knight_avatar.jpg"  alt="Knight_avatar" height="80" width="80">
+        {% elif character.hero_class == 1 %}
+        <img src="http://www.ronczo.webd.pro/media/Archer_avatar.jpg"  alt="Archer_avatar" height="80" width="80">
+        {% else %}
+        <img src="http://www.ronczo.webd.pro/media/Sorcerer_avatar.jpg"  alt="Sorcerer_avatar" height="80" width="80">
+        {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">{{ character.name }} </h5><hr>
+            <p class="card-text">
+                <h6 style="text-align: left">Hero details:</h6>
+                        <p style="text-align: left">Attack damage: {{ character.attack_dmg }}<br>
+                        Defence: {{ character.defence }}<br>
+                        HP: {{ character.hp }}<br>
+                        Mana: {{ character.mana }}<br>
+                        Stamina: {{ character.stamina }}</p>
+            <a href="{% url 'overview' character.id %}" class="btn btn-success" style="width: 10rem;">Play this hero</a>
+            <a href="{% url 'delete' character.id %}" class="btn btn-danger" style="width: 10rem;">Delete this hero</a>
+          </div>
+    </div>
 </div>
 {% endfor %}
 </div>

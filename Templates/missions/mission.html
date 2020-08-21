@@ -3,10 +3,40 @@
 
 {% block content %}
 {% if character.belongs_to == request.user %}
-
+<br>
+<div id="mission_number">
+    Mission {{ current_mission.number }}
+</div>
 <div id="container">
     <div id="herostatus">
-HERO
+        <div id="avatar">
+            {% if character.hero_class == 0 %}
+            <img src="http://www.ronczo.webd.pro/media/Knight_avatar.jpg"  alt="Knight_avatar" height="80" width="80">
+            {% elif character.hero_class == 1 %}
+            <img src="http://www.ronczo.webd.pro/media/Archer_avatar.jpg"  alt="Archer_avatar" height="80" width="80">
+            {% else %}
+            <img src="http://www.ronczo.webd.pro/media/Sorcerer_avatar.jpg"  alt="Sorcerer_avatar" height="80" width="80">
+            {% endif %}
+        </div>
+        <p class="leftmargin"> {{ character.name }} </p>
+        <div id="character_details" class="leftmargin">
+            <div class="progress">
+                <div class="progress-bar bg-success" role="progressbar" style="width: {{ progress_bar_hp }}%" aria-valuenow="{{ character.current_hp }}" aria-valuemin="5" aria-valuemax="{{ character.hp }}"></div>
+            </div>{{ character.current_hp }} / {{ character.hp }} HP
+            <div class="progress">
+                <div class="progress-bar bg-info" role="progressbar" style="width: {{ progress_bar_mana }}%" aria-valuenow="{{ character.current_mana }}" aria-valuemin="0" aria-valuemax="{{ character.mana }}"></div>
+            </div>{{ character.current_mana }} / {{ character.mana }} Mana
+            <div class="progress">
+                <div class="progress-bar bg-warning" role="progressbar" style="width: {{ progress_bar_stamina }}%" aria-valuenow="{{ character.current_stamina }}" aria-valuemin="0" aria-valuemax="{{ character.stamina }}"></div>
+            </div>{{ character.current_stamina }} / {{ character.stamina }} Stamina
+            <br>
+                      <hr><p style="text-align: left"><i class="fas fa-fire"></i> Attack damage: {{ character.attack_dmg }}</p><hr>
+          <p><i class="fas fa-shield-alt"></i> Defence: {{ character.defence }}</p><hr>
+          <p><i class="fas fa-heart"></i> Max HP: {{ character.hp }}</p><hr>
+          <p><i class="fas fa-praying-hands"></i> Max mana: {{ character.mana }}</p><hr>
+          <p><i class="fas fa-running"></i> Max stamina: {{ character.stamina }}</p><hr>
+          <p><i class="fas fa-coins"></i><b> Money: {{ character.money }}</b></p>
+        </div>
     </div>
 
     <div id="monsterstatus">
