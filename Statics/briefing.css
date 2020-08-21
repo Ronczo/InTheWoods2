@@ -24,6 +24,7 @@
 
 #map {
     float: right;
+    position: relative;
 }
 
 .blink {
@@ -48,8 +49,8 @@
 
 #position1 {
     position: absolute;
-    top: 525px;
-    left: 1575px;
+    top: 55%;
+    left: 65%;
     color: red
 }
 
@@ -62,42 +63,42 @@
 
 #position2 {
     position: absolute;
-    top: 550px;
-    left: 1415px;
-    color: red;
+    top: 56%;
+    left: 45%;
+    color: red
 }
 
 #position3 {
     position: absolute;
-    top: 475px;
-    left: 1215px;
-    color: red;
+    top: 41%;
+    left: 19%;
+    color: red
 }
 
 #position4 {
     position: absolute;
-    top: 385px;
-    left: 1350px;
-    color: red;
+    top: 34%;
+    left: 32%;
+    color: red
 }
 
 #position5 {
     position: absolute;
-    top: 365px;
-    left: 1710px;
-    color: red;
+    top: 41%;
+    left: 77%;
+    color: red
 }
 
 #position6 {
     position: absolute;
-    top: 300px;
-    left: 1550px;
-    color: red;
+    top: 24%;
+    left: 60%;
+    color: red
 }
 
 #position7 {
     position: absolute;
-    top: 160px;
-    left: 1250px;
-    color: red;
+    top: 5%;
+    left: 22%;
+    color: red
 }

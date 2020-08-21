@@ -16,8 +16,7 @@ body {
 #vertical {
         position: absolute;
         top: 51%;
-        margin-right: -50%;
-        margin-left: 10px;
+        left: 100px;
         transform: translate(-50%, -50%);
 }
 
