@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from TheInimicalWood.forms import RegisterForm, CharacterForm
-from .models import Character, Item, Mission
+from .models import Character, Item, Mission, Monsters
 from django.contrib.auth.decorators import login_required
 from django.views import View
 from . import general
@@ -254,6 +254,10 @@ def mission_select(request, id):
 
 
 def briefing(request, id, selected_mission):
+    """
+    Showing basic info about selected mission
+    """
+
     character = get_object_or_404(Character, pk=id)
     current_mission = get_object_or_404(Mission, number=selected_mission)
 
@@ -266,12 +270,16 @@ def briefing(request, id, selected_mission):
     return render(request, 'missions/briefing-template.html', context)
 
 def mission(request,id, selected_mission):
+    """
+    Fighting mechanics and info about character and monster
+    """
+
     character = get_object_or_404(Character, pk=id)
     current_mission = get_object_or_404(Mission, number=selected_mission)
+    monster = get_object_or_404(Monsters, number=selected_mission)
 
     #Variables needed for template
 
-    loop_index_raw = [i for i in range(1000)][1::3]
     progress_bar_hp = int(character.current_hp / character.hp * 100) if (
     character.current_hp / character.hp * 100) >= 25 else 25
     progress_bar_mana = int(character.current_mana / character.mana * 100) if (
@@ -279,12 +287,24 @@ def mission(request,id, selected_mission):
     progress_bar_stamina = int(character.current_stamina / character.stamina * 100) if (
     character.current_stamina / character.stamina * 100) >= 25 else 25
 
+    #Variables for info about monster
+
+    monster_progress_bar_hp = int(monster.current_hp / monster.max_hp * 100) if (
+    monster.current_hp / monster.max_hp * 100) >= 25 else 25
+    monster_progress_bar_mana = int(monster.current_mana / monster.max_mana * 100) if (
+    monster.current_mana / monster.max_mana * 100) >= 25 else 25
+
+
     context = {
         'character': character,
         'current_mission': current_mission,
         'progress_bar_hp': progress_bar_hp,
         'progress_bar_mana': progress_bar_mana,
-        'progress_bar_stamina': progress_bar_stamina
+        'progress_bar_stamina': progress_bar_stamina,
+        'mission_number': selected_mission,
+        'monster': monster,
+        'monster_progress_bar_hp': monster_progress_bar_hp,
+        'monster_progress_bar_mana': monster_progress_bar_mana
     }
 
     return render(request, 'missions/mission.html', context)

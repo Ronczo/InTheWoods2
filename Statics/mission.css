@@ -8,12 +8,6 @@
     float: left;
 }
 
-#actionmenu {
-    width: 40%;
-    height: 550px;
-    margin-left: auto;
-    margin-right: auto;
-}
 
 #herostatus, #actionmenu, #monsterstatus, #mission_number {
     border: solid 3px;
@@ -22,6 +16,14 @@
     border-radius: 25px;
     padding: 15px;
     color: #9ec8d6;
+}
+
+#actionmenu {
+    width: 40%;
+    height: 550px;
+    margin-left: auto;
+    margin-right: auto;
+    border: dotted 3px;
 }
 
 #monsterstatus {
@@ -62,4 +64,12 @@
     position: absolute;
     margin-top: 40px;
     margin-left: 0px;
+}
+
+.rightmargin {
+    text-align: right;
+    color: #990000;
+    margin-right: 10px;
+    font-size: 16px;
+    font-family: 'Skranji', cursive;
 }

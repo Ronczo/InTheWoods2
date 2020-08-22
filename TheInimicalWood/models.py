@@ -78,3 +78,18 @@ class Mission(models.Model):
 
     def __str__(self):
         return f"{self.number} - {self.description}"
+
+class Monsters(models.Model):
+    name = models.CharField(max_length=20, unique=False, blank=False)
+    description = models.TextField(blank=True, null=True)
+    current_hp = models.PositiveSmallIntegerField(blank=False, null=False, default=100)
+    current_mana = models.PositiveSmallIntegerField(blank=False, null=False, default=50)
+    max_hp = models.PositiveSmallIntegerField(blank=False, null=False, default=100)
+    max_mana = models.PositiveSmallIntegerField(blank=False, null=False, default=50)
+    picture = models.URLField(unique=True, blank=True, null=True)
+    number = models.PositiveSmallIntegerField(default=0, blank=False, null=False)
+    attack_dmg = models.PositiveSmallIntegerField(blank=False, null=False, default=10)
+    defence = models.PositiveSmallIntegerField(blank=False, null=False, default=10)
+
+    def __str__(self):
+        return  f"{self.name} - {self.description}"

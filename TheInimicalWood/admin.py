@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Item, Character, Mission
+from .models import Item, Character, Mission, Monsters
 
 
 
@@ -13,4 +13,5 @@ class Character_admin_view(admin.ModelAdmin):
 
 admin.site.register(Item)
 admin.site.register(Mission)
+admin.site.register(Monsters)
 
