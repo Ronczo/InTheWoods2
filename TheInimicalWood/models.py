@@ -25,7 +25,7 @@ class Character(models.Model):
     current_mana = models.PositiveSmallIntegerField(blank=False, null=False, default=50)
     current_stamina = models.PositiveSmallIntegerField(blank=False, null=False, default=100)
     mission = models.PositiveSmallIntegerField(blank=False, null=False, default=0)  # Last finished mission
-
+    critical_chance = models.PositiveSmallIntegerField(blank=False, null=False, default=20)
 
     def __str__(self):
         return f"""NAME: {self.name}
@@ -79,6 +79,7 @@ class Mission(models.Model):
     def __str__(self):
         return f"{self.number} - {self.description}"
 
+
 class Monsters(models.Model):
     name = models.CharField(max_length=20, unique=False, blank=False)
     description = models.TextField(blank=True, null=True)
@@ -90,6 +91,7 @@ class Monsters(models.Model):
     number = models.PositiveSmallIntegerField(default=0, blank=False, null=False)
     attack_dmg = models.PositiveSmallIntegerField(blank=False, null=False, default=10)
     defence = models.PositiveSmallIntegerField(blank=False, null=False, default=10)
+    critical_chance = models.PositiveSmallIntegerField(blank=False, null=False, default=0)
 
     def __str__(self):
-        return  f"{self.name} - {self.description}"
+        return f"{self.name} - {self.description}"

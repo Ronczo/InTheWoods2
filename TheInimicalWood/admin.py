@@ -6,7 +6,7 @@ from .models import Item, Character, Mission, Monsters
 @admin.register(Character)
 class Character_admin_view(admin.ModelAdmin):
     fields = ['name', 'hero_class', 'belongs_to', 'attack_dmg', 'defence', 'hp', 'mana',
-              'stamina', 'backpack', 'money', 'current_hp', 'current_mana', 'current_stamina', 'mission']
+              'stamina', 'backpack', 'money', 'current_hp', 'current_mana', 'current_stamina', 'mission', 'critical_chance']
     list_filter = ['hero_class']
     search_fields = ['name']
 

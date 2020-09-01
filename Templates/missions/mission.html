@@ -31,11 +31,12 @@
                 <div class="progress-bar bg-warning" role="progressbar" style="width: {{ progress_bar_stamina }}%" aria-valuenow="{{ character.current_stamina }}" aria-valuemin="0" aria-valuemax="{{ character.stamina }}"></div>
             </div>{{ character.current_stamina }} / {{ character.stamina }} Stamina
             <br><hr>
-          <p style="text-align: left"><i class="fas fa-fire"></i> Attack damage: {{ character.attack_dmg }}</p><hr>
-          <p><i class="fas fa-shield-alt"></i> Defence: {{ character.defence }}</p><hr>
-          <p><i class="fas fa-heart"></i> Max HP: {{ character.hp }}</p><hr>
-          <p><i class="fas fa-praying-hands"></i> Max mana: {{ character.mana }}</p><hr>
-          <p><i class="fas fa-running"></i> Max stamina: {{ character.stamina }}</p><hr>
+            <p style="text-align: left"><i class="fas fa-fire"></i> Attack damage: {{ character.attack_dmg }}</p>
+            <p><i class="fas fa-shield-alt"></i> Defence: {{ character.defence }}</p>
+            <p><i class="fas fa-heart"></i> Max HP: {{ character.hp }}</p>
+            <p><i class="fas fa-praying-hands"></i> Max mana: {{ character.mana }}</p>
+            <p><i class="fas fa-running"></i> Max stamina: {{ character.stamina }}</p>
+            <p><i class="fas fa-bomb"></i> Cricital chance: {{ character.critical_chance }}%</p>
         </div>
     </div>
     <!-- MONSTER STATUS SECTION -->
@@ -59,11 +60,24 @@
 
         <p class="rightmargin"><i class="fas fa-fire"></i> Attack damage: {{ monster.attack_dmg }}</p><hr>
         <p class="rightmargin"><i class="fas fa-shield-alt"></i> Defence: {{ monster.defence }}</p><hr>
-        <p class="rightmargin"><i class="fas fa-heart"></i> Max HP: {{ monster.max_hp }}</p><hr>
+        <p class="rightmargin"><i class="fas fa-bomb"></i> Cricital chance: {{ monster.critical_chance }}%</p><hr>
+        <p id="monster_description">"{{ monster.description }}"</p>
     </div>
     <!-- ACTION SECTION -->
     <div id="actionmenu">
-        ACTION
+        <div id="actiontext">
+            <div id="tothebottom">
+                asd
+            </div>
+        </div>
+        <div id="basicaction">
+            <div id="attackbutton">
+                <a href="#" class="not-active">ATTACK</a>
+            </div>
+            <div id="defendbutton">
+                <a href="#" class="not-active">DEFEND</a>
+            </div>
+        </div>
     </div>
 </div>
 

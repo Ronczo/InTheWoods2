@@ -23,7 +23,8 @@
     height: 550px;
     margin-left: auto;
     margin-right: auto;
-    border: dotted 3px;
+    border: dotted 2px;
+    background-color: rgba(0, 0, 0, 0.9);
 }
 
 #monsterstatus {
@@ -31,6 +32,7 @@
     height: 550px;
     float: right;
     border-color: #990000;
+    position: relative;
 }
 
 #mission_number {
@@ -72,4 +74,77 @@
     margin-right: 10px;
     font-size: 16px;
     font-family: 'Skranji', cursive;
+}
+
+#monster_description {
+    position:absolute;
+    bottom:0;
+    right:0;
+    color: #990000;
+    margin: 30px;
+    font-size: 24px;
+    font-family: 'Srisakdi', cursive;
+    font-weight: 1000;
+}
+
+#basicaction {
+    color: white;
+    height: 75px;
+    width: 50%;
+    margin: auto;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+
+
+#attackbutton {
+    float: left;
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: 40%;
+    text-align: center;
+    margin-right: 10px;
+    background-color: red;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 22px;
+
+}
+
+#defendbutton {
+    margin-left: 60%;
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: 40%;
+    text-align: center;
+    background-color: blue;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 22px;
+}
+
+a.not-active {
+    color: white;
+}
+
+a.not-active:hover {
+    text-decoration: none;
+}
+
+#actiontext {
+    position: relative;
+    color: white;
+    border: solid 3px;
+    border-color: white;
+    height: 300px;
+    width: 90%;
+    margin: 0px auto;
+    background-color: black;
+    border-radius: 25px;
+    padding: 15px;
+}
+
+#tothebottom {
+    position: absolute;
+    bottom: 0;
+    padding: 10px;
 }
