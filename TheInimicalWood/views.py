@@ -3,7 +3,7 @@ from TheInimicalWood.forms import RegisterForm, CharacterForm
 from .models import Character, Item, Mission, Monsters
 from django.contrib.auth.decorators import login_required
 from django.views import View
-from . import general
+from . import general, combat
 import json
 from django.http import HttpResponse
 
@@ -296,14 +296,16 @@ def mission(request,id, selected_mission):
     monster_progress_bar_mana = int(monster.current_mana / monster.max_mana * 100) if (
     monster.current_mana / monster.max_mana * 100) >= 25 else 25
 
+
     #attach action
     if 'attack' in request.POST:
         monster.current_hp -= 1
-        monster.save()
+        combat.Attacks.basic_attack(id, selected_mission)
+        return redirect('mission', id=character.id, selected_mission=selected_mission)
 
     if 'defend' in request.POST:
-        monster.current_hp += 1
-        monster.save()
+        combat.Defends.defend(id)
+        return redirect('mission', id=character.id, selected_mission=selected_mission)
 
     context = {
         'character': character,
