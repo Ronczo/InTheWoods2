@@ -1,0 +1,23 @@
+#thankyouforplaying {
+    color: yellow;
+    width: 30%;
+    text-align: left;
+    font-family: 'Ranchers', cursive;
+    font-size: 33px;
+    margin-top: 40px;
+    float: right;
+}
+
+.thanks_pic {
+    border: solid 3px;
+    border-color: #448aa2;
+    margin-left: 10px;
+    margin-top: 40px;
+
+
+}
+
+.nodecoration {
+    font-family: 'Ranchers', cursive;
+    margin-left: 10px;
+}

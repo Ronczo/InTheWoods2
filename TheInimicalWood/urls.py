@@ -1,6 +1,6 @@
 from django.urls import path
 from. views import home, game, create_character, Overview, specialthanks, delete_character, Shop, mission_select,\
-    briefing, Combat
+    briefing, Combat, guest_book_new, guest_book
 from . import combat
 
 
@@ -15,4 +15,6 @@ urlpatterns = [
     path('mission/<int:id>', mission_select, name="mission_select"),
     path('briefing<int:selected_mission>/<int:id>', briefing, name="briefing"),
     path('mission<int:selected_mission>/<int:id>/', Combat.as_view(), name="mission"),
+    path('guest_book_new/', guest_book_new, name="guest_book_new"),
+    path('guest_book/', guest_book, name="guest_book"),
 ]

@@ -21,13 +21,7 @@
     <div class="col-md-auto">
 
       <div class="card text-white" style="width: 20rem;background-color: rgba(0, 0, 0, 0.85); width: 18rem;">
-        {% if character.hero_class == 0 %}
-        <img src="http://www.ronczo.webd.pro/media/Knight_avatar.jpg"  alt="Knight_avatar" height="80" width="80">
-        {% elif character.hero_class == 1 %}
-        <img src="http://www.ronczo.webd.pro/media/Archer_avatar.jpg"  alt="Archer_avatar" height="80" width="80">
-        {% else %}
-        <img src="http://www.ronczo.webd.pro/media/Sorcerer_avatar.jpg"  alt="Sorcerer_avatar" height="80" width="80">
-        {% endif %}
+        <img src="{{ character.avatar }}"  alt="avatar" height="80" width="80">
           <div class="card-body">
             <h5 class="card-title">{{ character.name }} </h5><hr>
             <p class="card-text">

@@ -27,6 +27,7 @@ class Character(models.Model):
     mission = models.PositiveSmallIntegerField(blank=False, null=False, default=0)  # Last finished mission
     critical_chance = models.PositiveSmallIntegerField(blank=False, null=False, default=20)
     special_attack_pic = models.URLField(unique=False, blank=True, null=True)
+    avatar = models.URLField(unique=False, blank=True, null=True)
 
     def __str__(self):
         return f"""NAME: {self.name}
@@ -98,3 +99,11 @@ class Monsters(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.description}"
+
+class Guests(models.Model):
+
+    text = models.TextField(default="")
+    signature = models.CharField(max_length=64, blank=False, unique=True)
+    contact = models.CharField(max_length=64, blank=False, unique=True)
+    published_date = models.DateTimeField(auto_now=False, auto_now_add=False, null=True, blank=True)
+

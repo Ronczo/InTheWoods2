@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from TheInimicalWood.forms import RegisterForm, CharacterForm
-from .models import Character, Item, Mission, Monsters
+from TheInimicalWood.forms import RegisterForm, CharacterForm, Guest_book
+from .models import Character, Item, Mission, Monsters, Guests
 from django.contrib.auth.decorators import login_required
 from django.views import View
 from . import general, combat
 import json
 from django.http import HttpResponse
+from datetime import datetime
 
 
 class Overview(View):
@@ -218,10 +219,9 @@ class Combat(View):
             return redirect('mission_select', id=character.id)
 
         if 'equip' in request.POST:
-            request.session['battle_route'] = general.Overview.equip_item(request, character, hero_backpack, hero_inventory)
+            request.session['battle_route'] = general.Overview.equip_item(request, character, hero_backpack,
+                                                                          hero_inventory)
             return redirect('mission', id=character.id, selected_mission=selected_mission)
-
-
 
 
 def home(request):
@@ -329,6 +329,7 @@ def specialthanks(request):
     return render(request, 'specialthanks.html')
 
 
+@login_required
 def mission_select(request, id):
     """
     progress overview and choosing mission
@@ -346,6 +347,7 @@ def mission_select(request, id):
     return render(request, 'mission_select.html', context)
 
 
+@login_required
 def briefing(request, id, selected_mission):
     """
     Showing basic info about selected mission
@@ -360,3 +362,34 @@ def briefing(request, id, selected_mission):
     }
 
     return render(request, 'missions/briefing-template.html', context)
+
+
+@login_required
+def guest_book(request):
+    try:
+        all_registries = Guests.objects.all()
+    except:
+        all_registries = None
+
+    context = {
+        'all_registries': all_registries
+    }
+
+    return render(request, 'guest_book.html', context)
+
+
+@login_required
+def guest_book_new(request):
+    geust_book_form = Guest_book(request.POST or None)
+
+    if geust_book_form.is_valid():
+        registry = geust_book_form.save(commit=False)
+        registry.published_date = datetime.now()
+        registry.save()
+        return redirect(guest_book)
+
+    context = {
+        'geust_book_form': geust_book_form
+    }
+
+    return render(request, 'guest_book_new.html', context)

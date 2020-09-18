@@ -20,17 +20,33 @@
                               {% if next_mission < mission.number %}
                                 opacity: 0.6;
                               {% endif %}
-                             ">
+                            ">
                             {% if character.mission >= mission.number %}
                                 <div style="position: absolute;
                                     bottom: 3px;
                                     width: 50%;
-                                    color: white;"><center><i class="fas fa-check-circle fa-3x"></i></center>
+                                    color: white;
+                                    text-align: center;">
+                                    <i class="fas fa-check-circle fa-3x"></i>
                                 </div>
                             {% endif %}
                         </a>
                 </div>
               {% endfor %}
+              {% if character.mission >= 7 %}
+                <div id="thankyouforplaying">
+                Thank you for playing!
+                </div>
+                <div>
+                    <a href="{% url 'guest_book' %}" class="nodecoration" style="text-decoration: none;">
+                        <img src="http://www.ronczo.webd.pro/media/scroll.jpg" height="70" width="70" class="thanks_pic">
+                    </a>
+                    <span class="nodecoration">Leave the note!</span>
+                    <a href="#">
+                        <img src="http://www.ronczo.webd.pro/media/scroll.jpg" height="70" width="70" class="thanks_pic">
+                    </a>
+                    <span class="nodecoration">What's inside?</span>
+              {% endif %}
             </div>
           </div>
         </div>

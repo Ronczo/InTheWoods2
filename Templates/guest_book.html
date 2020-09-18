@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block  title %}Create character{% endblock %}
+{% block content %}
+<a href="{% url 'home' %}" class="btn btn-danger" id="back">BACK</a>
+<div id="guest_book">
+    <p id="headline">Guest Book</p>
+    <div>
+        <a href="{% url 'guest_book_new' %}" class="btn btn-info" style="margin-bottom: 20px;">Write something!</a>
+        {% for registry in all_registries %}
+            <p class="date"> {{ registry.published_date }} </p>
+            <p class="registry_text">{{ registry.text }}</p>
+            <p class="signature"> {{ registry.signature }}<br>{{registry.contact}} </p>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

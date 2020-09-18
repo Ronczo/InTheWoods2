@@ -48,4 +48,43 @@ hr.overview {
     solid #9ec8d6;
 }
 
+#guest_book {
+    background-color: rgba(0, 0, 0, 0.85);
+    margin: auto;
+    color: white;
+    width: 40%;
+    overflow: auto;
+    border: solid 3px;
+    border-color: #245775;
+    margin-top: 10px;
+    text-align: center;
+
+}
+
+#headline {
+    font-size: 30px;
+    font-family: 'Rock Salt', cursive;
+}
+
+.registry_text {
+    border: solid 1px;
+    font-family: 'Marck Script', cursive;
+    font-size: 25px;
+    text-align: left;
+    padding: 15px;
+    margin: 0 10px;
+}
+
+.date {
+    margin-left: 20px;
+    font-family: 'Belleza', sans-serif;
+}
+
+.signature {
+    font-family: 'Marck Script', cursive;
+    font-size: 25px;
+    text-align: right;
+    margin-right: 20px;
+}
+
 

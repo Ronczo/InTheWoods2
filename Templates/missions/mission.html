@@ -7,26 +7,14 @@
 <div id="mission_number">
     Mission {{ current_mission.number }}
 </div>
-<div id="back">
-    <form method="post">
-        {% csrf_token %}
-    <button type="submit" name="lost" id="backbutton">
-        BACK
-    </button>
-    </form>
-
+<div >
+    <a href="{% url 'mission_select' character.id %}" class="btn btn-danger" id="back">BACK</a>
 </div>
 <div id="container">
     <!-- HERO STATUS SECTION-->
     <div id="herostatus">
         <div id="avatar">
-            {% if character.hero_class == 0 %}
-            <img src="http://www.ronczo.webd.pro/media/Knight_avatar.jpg"  alt="Knight_avatar" height="80" width="80">
-            {% elif character.hero_class == 1 %}
-            <img src="http://www.ronczo.webd.pro/media/Archer_avatar.jpg"  alt="Archer_avatar" height="80" width="80">
-            {% else %}
-            <img src="http://www.ronczo.webd.pro/media/Sorcerer_avatar.jpg"  alt="Sorcerer_avatar" height="80" width="80">
-            {% endif %}
+            <img src="{{ character.avatar }}"  alt="avatar" height="80" width="80">
         </div>
         <p class="leftmargin"> {{ character.name }} </p>
         <div id="character_details" class="leftmargin">

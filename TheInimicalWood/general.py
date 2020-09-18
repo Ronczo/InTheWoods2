@@ -40,13 +40,16 @@ def create_character_logic(hero):
     # starting statistics for everyclass
     if hero.hero_class == 0:
         hero.special_attack_pic = 'http://www.ronczo.webd.pro/media/warrior_special.jpg'
+        hero.avatar = 'http://www.ronczo.webd.pro/media/Knight_avatar.jpg'
     elif hero.hero_class == 1:
+        hero.avatar = 'http://www.ronczo.webd.pro/media/Archer_avatar.jpg'
         hero.special_attack_pic = 'http://www.ronczo.webd.pro/media/archer_special.jpg'
         hero.attack_dmg = 15
         hero.defence = 5
         hero.stamina = 150
         hero.current_stamina = 150
     elif hero.hero_class == 2:
+        hero.avatar = 'http://www.ronczo.webd.pro/media/Sorcerer_avatar.jpg'
         hero.special_attack_pic = 'http://www.ronczo.webd.pro/media/mage_special.jpg'
         hero.attack_dmg = 5
         hero.defence = 5
@@ -65,14 +68,14 @@ def contact_logic(user_name, user_mail, user_subject, mail_body, account):
     mail_subject = 'Automatic e-mail from /contact/ from {}({}) - Subject: {}'.format(user_name, user_mail,
                                                                                       user_subject)
     message = """From: {}
-    Subject: {} 
+       Subject: {} 
 
-    {}
-    --------------------------------------
-    sent by: {}
-    e-mail: {}
-    account: {}
-    """.format(user_mail, mail_subject, mail_body, user_name, user_mail, account)
+       {}
+       --------------------------------------
+       sent by: {}
+       e-mail: {}
+       account: {}
+       """.format(user_mail, mail_subject, mail_body, user_name, user_mail, account)
 
     server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
     server.ehlo()

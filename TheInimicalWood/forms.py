@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.forms import ModelForm
-from .models import Character
+from .models import Character, Guests
 
 
 
@@ -22,6 +22,11 @@ class CharacterForm(ModelForm):
     class Meta:
         model = Character
         fields = ['name', 'hero_class']
+
+class Guest_book(ModelForm):
+    class Meta:
+        model = Guests
+        fields = ["text", "signature", "contact"]
 
 
 

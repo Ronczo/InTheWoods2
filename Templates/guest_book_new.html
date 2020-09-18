@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block  title %}Create character{% endblock %}
+{% load bootstrap %}
+{% block content %}
+
+<div class="card text-white bg-dark mb-3 border-dark mb-3" style="width: 40rem; margin: auto; margin-top: 10px;">
+  <div class="card-body ">
+      <h4>New registry:</h4>
+          <form method="post">
+            {% csrf_token %}
+            {{geust_book_form|bootstrap}}
+            <button type="submit" class="btn btn-success ">Create</button>
+          </form>
+      </div>
+  </div>
+
+{% endblock %}
