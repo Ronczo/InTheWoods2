@@ -209,6 +209,7 @@ class Combat(View):
             combat.fight_end(id, selected_mission)
             character.mission = current_mission.number
             character.money += current_mission.gold
+            character.save()
             return redirect('mission_select', id=character.id)
 
         if 'lost' in request.POST:

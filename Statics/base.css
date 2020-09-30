@@ -14,23 +14,15 @@ body {
 }
 
 #vertical {
-        position: absolute;
-        top: 51%;
-        left: 100px;
-        transform: translate(-50%, -50%);
-}
-
-#verticalphoto {
-        position: absolute;
-        top: 25%;
-        left: 50%;
-        margin-right: -50%;
-        margin-left: 10px;
-        transform: translate(-50%, -50%);
-        border-width: 3px;
-        border-style: ridge;
+    position: absolute;
+    top: 33%;
+    left: 100px;
+    transform: translate(-50%, -50%);
+    float: right;
+    border: solid 10px;
 
 }
+
 
 #play {
     a:hover box-shadow: inset 300px 0 0 #e06666;
@@ -87,4 +79,24 @@ hr.overview {
     margin-right: 20px;
 }
 
+#aboutme {
+    position: absolute;
+    left: 40%;
+    top: 15%;
+    width: 21%;
+    height: 550px;
+    float: left;
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 25px;
+    padding: 15px;
+    color: #9ec8d6;
+}
 
+#aboutmepicture {
+    float: left;
+    margin-right: 10px;
+}
+#photo {
+        border: solid 3px;
+    border-color: #448aa2;
+}

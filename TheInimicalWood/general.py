@@ -131,8 +131,11 @@ class Overview:
             character.attack_dmg += item_to_equip.bonus_attack_dmg
             character.defence += item_to_equip.bonus_defence
             character.hp += item_to_equip.bonus_hp
+            character.current_hp += item_to_equip.bonus_hp
             character.mana += item_to_equip.bonus_mana
+            character.current_mana += item_to_equip.bonus_mana
             character.stamina += item_to_equip.bonus_stamina
+            character.current_stamina += item_to_equip.bonus_stamina
 
             # potions
             character.current_hp += item_to_equip.bonus_current_hp
