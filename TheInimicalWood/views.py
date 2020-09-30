@@ -152,11 +152,15 @@ class Combat(View):
         # Variables for info about monster
         monster_progress_bar_hp = int(monster.current_hp / monster.max_hp * 100)
 
-        battle_course = request.session['battle_route']
-        monster_message = request.session['monster_message']
-        request.session['battle_route'] = f'The battle is going to start soon. {character.name} is preparing weapon.'
+        try:
+            battle_course = request.session['battle_route']
+        except:
+            battle_course = f'The battle is going to start soon. {character.name} is preparing weapon.'
+        try:
+            monster_message = request.session['monster_message']
+        except:
+            monster_message = None
         request.session['monster_message'] = None
-
         hero_backpack = json.loads(character.backpack)
 
         # Creating backpack from JSON string
@@ -335,6 +339,8 @@ def mission_select(request, id):
     character = get_object_or_404(Character, pk=id)
     missions = Mission.objects.all()
     next_mission = character.mission + 1
+    request.session['battle_route'] = f'The battle is going to start soon. {character.name} is preparing weapon.'
+    request.session['monster_message'] = None
 
     context = {
         'character': character,
