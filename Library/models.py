@@ -9,7 +9,6 @@ class Book(models.Model):
     def __str__(self):
         return f"{self.title} written by {self.author} ({self.year_of_release})"
 
-
     def get_average_rate(self):
         rates = [rate for rate in Rate.objects.filter(rated_book=self)]
         result = 0
@@ -44,6 +43,7 @@ class Book(models.Model):
             if searching.lower() in book.title.lower() or searching.lower() in book.author.lower():
                 list_of_possibility.append(book)
         return list_of_possibility
+
 
 class Rate(models.Model):
     rates = [

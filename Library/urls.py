@@ -1,7 +1,6 @@
 from django.urls import path
 from .views import DisplayBooks, NewBook, EditBook, RateBook, DeleteBook, SortedBooks, OftenRate, Search
 
-
 urlpatterns = [
     path('main', DisplayBooks.as_view(), name='main'),
     path('new_book', NewBook.as_view(), name='new_book'),
