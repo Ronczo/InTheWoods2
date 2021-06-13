@@ -19,6 +19,8 @@ class RegisterForm(UserCreationForm):
         fields = ["username", "email", "password1", "password2"]
 
 class CharacterForm(ModelForm):
+    """Character Form"""
+    
     class Meta:
         model = Character
         fields = ['name', 'hero_class']
